@@ -17,4 +17,8 @@
         <PropertyInjector source="{LoginManager}" sourceKey="authenticated" targetKey="authenticated"/>
     </Injectors>
     
+    <Injectors target="{LoginView}">
+    	<PropertyInjector source="{LoginModel}"/>
+    </Injectors>
+    
 </EventMap>

@@ -9,7 +9,12 @@
     visible="{!model.authenticated}"
     >
     
-    <view:LoginModel id="model"/>
+    <mx:Script>
+    	<![CDATA[
+    		[Bindable]
+    		public var model:LoginModel; // you could have this be an interface instead
+    	]]>
+    </mx:Script>
     
     <mx:TitleWindow title="Login">
         <mx:Form width="300">
