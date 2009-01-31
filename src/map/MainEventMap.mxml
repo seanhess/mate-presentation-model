@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EventMap xmlns="http://mate.asfusion.com/" xmlns:mx="http://www.adobe.com/2006/mxml">
+    
+    <mx:Script>
+        <![CDATA[
+            import events.*;
+            import manager.*;
+            import view.*;
+        ]]>
+    </mx:Script>
+    
+    <EventHandlers type="{LoginEvent.AUTHENTICATE}" debug="true">
+        <MethodInvoker generator="{LoginManager}" method="setAuthenticated" arguments="{[true]}"/>
+    </EventHandlers>
+    
+    <Injectors target="{LoginModel}">
+        <PropertyInjector source="{LoginManager}" sourceKey="authenticated" targetKey="authenticated"/>
+    </Injectors>
+    
+</EventMap>

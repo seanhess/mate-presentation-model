@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box xmlns:mx="http://www.adobe.com/2006/mxml" 
+    width="100%" height="100%"
+    backgroundColor="#000000"
+    backgroundAlpha="0.8"
+    horizontalAlign="center"
+    verticalAlign="middle"
+    xmlns:view="view.*"
+    visible="{!model.authenticated}"
+    >
+    
+    <view:LoginModel id="model"/>
+    
+    <mx:TitleWindow title="Login">
+        <mx:Form width="300">
+            <mx:FormItem label="Username:">
+                <mx:TextInput id="username" change="model.updateUsername(username.text)"/>
+            </mx:FormItem>        
+            <mx:FormItem label="Password:">
+                <mx:TextInput id="password" change="model.updatePassword(password.text)" displayAsPassword="true"/>
+            </mx:FormItem>
+        </mx:Form>
+        
+        <mx:Button label="Login" 
+            click="model.authenticate()"
+            enabled="{model.allowLogin}"
+        />
+    </mx:TitleWindow>
+    
+</mx:Box>

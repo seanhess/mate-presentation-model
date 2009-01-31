@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:view="view.*" xmlns:map="map.*" viewSourceURL="srcview/index.html">
+
+	<!-- Event Map -->
+	<map:MainEventMap/>
+
+	<!-- Two views, the login view covers up the rest of my app -->
+	<view:EverythingElseView/>
+	<view:LoginView/>
+	
+</mx:Application>
