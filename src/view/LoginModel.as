@@ -2,33 +2,17 @@ package view
 {
     import events.LoginEvent;
     
-    import mx.core.UIComponent;
+    import flash.events.IEventDispatcher;
     
     [Bindable]
-    /**
-     * Allowing LoginModel to be a UIComponent does 2 things. 1) We can dispatch
-     * bubbling event straight from here and they get up to Mate, and 2) We can
-     * inject directly to the model without having Mate create the model for us.
-     * 
-     * Note that I would probably create a baseclass PresentationModel with the 
-     * visible and includeInLayout settings in it.
-     */
-    public class LoginModel extends UIComponent
+    public class LoginModel
     {
-        /**
-         * I would actually put these two lines in a base class called 
-         * PresentationModel or something
-         */
-        public function LoginModel()
-        {
-            this.visible = false;
-            this.includeInLayout = false;
-        }
-        
+    	public var dispatcher:IEventDispatcher;
+    	
         public var allowLogin:Boolean = false;
         public var authenticated:Boolean = false;
         protected var username:String;
-        protected var password:String;
+        protected var password:String; 
         
         public function updateUsername(username:String):void
         {
@@ -53,7 +37,7 @@ package view
                 event.username = username;
                 event.password = password;
                 
-            dispatchEvent(event);
+            dispatcher.dispatchEvent(event);
         }
     }
 }

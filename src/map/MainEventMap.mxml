@@ -9,16 +9,17 @@
         ]]>
     </mx:Script>
     
-    <EventHandlers type="{LoginEvent.AUTHENTICATE}" debug="true">
+    <EventHandlers type="{LoginEvent.AUTHENTICATE}">
         <MethodInvoker generator="{LoginManager}" method="setAuthenticated" arguments="{[true]}"/>
     </EventHandlers>
     
     <Injectors target="{LoginModel}">
         <PropertyInjector source="{LoginManager}" sourceKey="authenticated" targetKey="authenticated"/>
+        <PropertyInjector source="{scope}" sourceKey="dispatcher" targetKey="dispatcher"/>
     </Injectors>
     
     <Injectors target="{LoginView}">
-    	<PropertyInjector source="{LoginModel}"/>
+    	<PropertyInjector source="{LoginModel}" targetKey="model"/>
     </Injectors>
     
 </EventMap>
